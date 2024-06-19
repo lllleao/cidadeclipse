@@ -14,5 +14,5 @@ function sassCompiler() {
 exports.default = gulp.parallel(sassCompiler)
 
 exports.watch = function() {
-    gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.parallel(sassCompiler, minificarImg))
+    gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.parallel(sassCompiler))
 }
