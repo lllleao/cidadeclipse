@@ -11,6 +11,8 @@ const sassCompiler = () => {
         .pipe(gulp.dest('./build/styles'))
 }
 
+exports.default = gulp.parallel(sassCompiler)
+
 exports.watch = function() {
     gulp.watch('./source/styles/*.scss', {ignoreInitial: false}, gulp.parallel(sassCompiler))
 }

@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp watch"
+    "gulp": "gulp watch",
+    "build": "gulp"
   },
   "keywords": [],
   "author": "",
