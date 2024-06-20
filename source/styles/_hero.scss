@@ -9,7 +9,7 @@
     }
 
     &__img {
-        margin: 0 auto;
+        // margin: 0 auto;
         width: 45%;
         height: 45%;
     }
@@ -23,6 +23,8 @@
 
         @media screen and (max-width: 767px) {
             margin-top: 10vw;
+            width: min-content;
+            // margin: 10vw auto 0;
         }
 
         font-family: 'Times New Roman', Times, serif;
