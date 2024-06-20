@@ -30,12 +30,12 @@
 
 .main {
     background-color: variables.$mainBack;
-    padding-top: 6rem;
-    width: 100vw;
-    height: calc(100vh - 107px);
+    // padding-top: 6rem;
+    // width: 100vw;
+    // height: calc(100vh - 107px);
 
     @media screen and (max-width: 767px) {
-        padding-top: 4rem;
-        height: 100vh;
+        // padding-top: 4rem;
+        // height: 100vh;
     }
 }
