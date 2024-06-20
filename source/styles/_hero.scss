@@ -20,7 +20,10 @@
         justify-content: center;
         width: 100%;
 
-        // margin-left: 2rem;
+        @media screen and (max-width: 767px) {
+            margin-top: 5vw;
+        }
+
         font-family: 'Times New Roman', Times, serif;
         &__title {
             margin-bottom: 8px;
