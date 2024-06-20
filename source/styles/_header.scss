@@ -9,6 +9,10 @@
 
     &__nav {
         .menu-mob {
+            display: none;
+            @media screen and (max-width: 767px) {
+                display: block;
+            }
             position: absolute;
             top: 20px;
             right: 20px;
