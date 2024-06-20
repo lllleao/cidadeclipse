@@ -1,0 +1,46 @@
+.hero__description__title {
+    overflow: hidden;
+    .span1 {
+        display: block;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            content: '';
+            background-color: #000;
+            width: 90%;
+            height: 93%;
+            animation: barOne 1s 1s ease forwards;
+        }
+    }
+    
+    .span2 {
+        display: block;
+        position: relative;
+        
+        &::before {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            content: '';
+            background-color: #000;
+            width: 99%;
+            height: 95%;
+            animation: barTwo 1s 2s ease forwards;
+        }
+    }
+}
+
+@keyframes barOne {
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes barTwo {
+    100% {
+        left: -100%;
+    }
+}

@@ -1,3 +1,5 @@
+@use 'animationPass';
+
 .hero {
     display: flex;
     align-items: center;
@@ -35,15 +37,14 @@
         &__title {
             margin-bottom: 8px;
             font-size: clamp(50px, 8vw, 128px);
-            // font-size: 8vw;
-            text-wrap: wrap;
-            line-height: 0.79741669em;
+            line-height: 1em;
             letter-spacing: 8px;
             font-weight: bold;
             text-transform: uppercase;
             -webkit-text-stroke: 0.021875em #fff;
-            color: transparent;
-            // text-align: end;
+            span {
+                color: transparent;
+            }
         }
         
         &__subtitle {
