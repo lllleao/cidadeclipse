@@ -1,5 +1,8 @@
 .public-lb {
     padding-top: 3rem;
+    @media (width <= 767px) {
+        
+    }
 
     &__title {
         margin: 0 auto;
