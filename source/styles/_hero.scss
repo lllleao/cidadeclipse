@@ -4,13 +4,15 @@
 .hero {
     display: flex;
     align-items: center;
+    // justify-content: center;
     height: calc(100vh - 107px);
 
     @media screen and (max-width: 767px) {
         // width: 90%;
         flex-direction: column;
         justify-content: center;
-    height: 100vh;
+        align-items: center;
+        height: 100vh;
     }
 
     &__img {
@@ -44,6 +46,9 @@
             text-transform: uppercase;
             -webkit-text-stroke: 0.021875em #fff;
             span {
+                &:nth-child(1) {
+                    padding-left: 12px;
+                }
                 color: transparent;
             }
         }
