@@ -1,18 +1,152 @@
 .public-lb {
+    text-align: center;
     // padding-top: 3rem;
 
     &__title {
-        margin: 0 auto;
-        
-        text-align: center;
+        @media (max-width: 767px) {
+            margin: 0 auto 32px;
+        }
+        margin: 0 auto 128px;
+        width: 100%;
         font-family: "Medula One", system-ui;
-        font-size: 64px;
+        font-size: clamp(64px, 10vw, 160px);
         font-weight: normal;
 
         filter: drop-shadow(0em 0em 0.017405em rgba(247, 7, 7, 0.950000)) drop-shadow(0em 0em 0.087025em rgba(247, 38, 38, 0.750000)) drop-shadow(0em 0em 0.261075em rgba(247, 38, 38, 0.440000)) drop-shadow(0em 0em 0.017405em rgba(247, 7, 7, 0.950000));
-        
-        position: relative;
+
         color: #fd9c9c;
+
+    }
+
+    &__first {
+        margin-bottom: 64px;
+        &__images {
+            display: grid;
+            grid-template-columns: 650px 418px;
+            gap: 18px;
+            place-content: center;
+
+            @media (max-width: 767px) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .tartarus {
+                border: 5px solid #fff;
+                border-radius: 18px;
+                overflow: hidden;
+
+                img {
+                    border-radius: 18px;
+                    max-width: 100%;
+                }
+            }
+            
+            .shop {
+                .shop1 {
+                    display: block;
+                    margin-bottom: 16px;
+                    div {
+                        border-radius: 18px;
+                        border: 5px solid #fff;
+                        overflow: hidden;
+                        width: 418px;
+                        height: 596px;
+
+                        @media (max-width: 767px) {
+                            width: 100%;
+                            // height: 100%;
+                        }
+                        
+                        max-width: 100%;
+                        max-height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+
+                            object-fit: cover;
+                        }
+                    }
+                    
+                }
+
+                .shop2 {
+                    display: block;
+                
+                    div {
+                        border-radius: 18px;
+                        border: 5px solid #fff;
+                        overflow: hidden;
+                        width: 418px;
+                        height: 306px;
+                        
+                        max-width: 100%;
+                        max-height: 100%;
+                        img {
+                            width: 100%;
+                            height: 100%;
+
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__second {
+        display: flex;
+        justify-content: center;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+
+            .suetem-text {
+                margin-left: 0;
+            }
+        }
         
+        .suetem {
+            &__capa {
+                display: block;
+                div {
+                    border: 5px solid #fff;
+                    border-radius: 18px;
+                    overflow: hidden;
+                    img {
+                        width: 450px;
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        .suetem-text {
+            font-size: clamp(22px, 4vw, 38px);
+            max-width: 50%;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+            text-align: justify;
+            margin-left: 128px;
+            line-height: 42px;
+
+            @media (max-width: 767px) {
+                margin-left: 0;
+                max-width: 900%;
+                padding: 0 8px;
+            }
+        }
+    }
+
+    &__desc {
+        margin: 32px 0;
+        text-decoration: underline;
+        font-family: 'Courier New', monospace;
+        font-size: clamp(16px, 4vw, 28px);
+        font-weight: bold;
+        // @media (max-width: 767px) {
+        //     display: flex;
+        //     flex-direction: column;
+        // }
     }
 }
