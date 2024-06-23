@@ -1,6 +1,9 @@
 .public-lb {
     text-align: center;
-    // padding-top: 3rem;
+
+    @media (max-width: 767px) {
+        width: 88%;
+    }
 
     &__title {
         @media (max-width: 767px) {
@@ -118,8 +121,8 @@
                     border: 5px solid #fff;
                     border-radius: 18px;
                     overflow: hidden;
-                    width: 450px;
-                    max-width: 100%;
+                    max-width: 450px;
+                    width: 100%;
 
                     img {
                         width: 100%;
