@@ -22,7 +22,6 @@
     .cursor {
         position: relative;
         width: 100%;
-        margin: 0 auto;
         
         &::before {
             content: '';
@@ -96,7 +95,7 @@
         
         div {
             img {
-                width: 120px;
+                width: 270px;
             }
         }
     }
