@@ -1,5 +1,21 @@
 .public-lb {
     padding-bottom: 122px;
+    font-family: 'Courier New OS', Courier, monospace;
+
+    &__desc {
+        text-align: justify;
+        max-width: 80%;
+        margin: 0 auto;
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 32px;
+        margin-bottom: 72px;
+
+        @media (max-width: 767px) {
+            margin-top: 72px;
+        }
+    }
+
     &__title {
         text-align: center;
         @media (max-width: 767px) {
@@ -20,6 +36,7 @@
     }
     
     .cursor {
+        margin: 0 auto;
         position: relative;
         width: 100%;
         
@@ -95,8 +112,12 @@
         
         div {
             img {
-                min-width: 270px;
-                width: 100%;
+                max-width: clamp(270px, 60vw, 460px);
+                // width: 100%;
+            }
+            h3 {
+                text-align: center;
+                text-decoration: underline;
             }
         }
     }
