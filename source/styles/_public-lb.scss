@@ -66,11 +66,14 @@
                     }
                 }
             }
+
+            width: 95%;
+
         }
 
         margin: 0 auto;
         position: relative;
-        width: 90%;
+        width: 100%;
         
         &::before {
             content: '';
@@ -151,7 +154,7 @@
                 margin-top: 8px;
                 text-align: center;
                 text-decoration: underline;
-                font-size: 22px;
+                font-size: clamp(18px, 4vw, 22px);
                 font-weight: bold;
             }
         }
