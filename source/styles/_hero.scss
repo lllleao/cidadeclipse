@@ -1,5 +1,5 @@
-@use 'animationPass';
-@use '_animationType';
+@use './animations/animationPass';
+@use './animations/animationType';
 
 .hero {
     display: flex;
