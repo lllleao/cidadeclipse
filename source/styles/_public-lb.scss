@@ -166,7 +166,7 @@
         }
         
         a {
-            transform: translateX(105%);
+            // transform: translateX(105%);
             
             img {
                 max-width: clamp(270px, 60vw, 460px);
@@ -179,6 +179,6 @@
                 font-size: clamp(18px, 4vw, 22px);
                 font-weight: bold;
             }
-    }
+        }
     }
 }
