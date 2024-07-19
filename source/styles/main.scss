@@ -15,6 +15,10 @@
     font-family: 'Courier New OS', Courier, monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1216px;
     width: 100%;
