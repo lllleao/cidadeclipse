@@ -4,8 +4,7 @@
 .hero {
     display: flex;
     align-items: center;
-    // justify-content: center;
-    height: calc(100dvh - 107px);
+    height: 100dvh;
 
     @media screen and (max-width: 767px) {
         // width: 90%;
