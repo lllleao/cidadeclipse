@@ -8,7 +8,7 @@
         margin: 0 auto;
         font-size: clamp(22px, 5vw, 38px);
         font-weight: bold;
-        line-height: 38px;
+        line-height: 48px;
         margin-bottom: 72px;
 
         @media (max-width: 767px) {
@@ -36,55 +36,15 @@
     }
     
     .cursor {
-        @media (min-width: 1023px) {
-            &::before {
-                display: none;
-            }
-
-            &::after {
-                display: none;
-            }
-
-            .carroussel {
-                &::before {
-                    display: none;
-                }
-
-                &::after {
-                    display: none;
-                }
-
-                overflow: visible;
-                border: none;
-                padding: 0;
-                
-                a {
-                    
-                    img {
-                        border: 4px solid #fff;
-                        border-radius: 18px;
-                        width: 100%;
-                    }
-
-                    
-                }
-            }
-
-            width: 95%;
-
-            .mask-left,
-            .mask-right {
-                display: none;
-            }
-
+        position: relative;
+        &::before,
+        &::after,
+        .mask-left,
+        .mask-right {
+            display: none;
         }
 
-        margin: 0 auto;
-        position: relative;
-        width: 100%;
-
         .mask-left {
-            // background-color: red;
             position: absolute;
             top: 0;
             left: 0;
@@ -94,7 +54,6 @@
         }
 
         .mask-right {
-            // background-color: red;
             position: absolute;
             top: 0;
             right: 0;
@@ -111,11 +70,9 @@
             z-index: 2;
             width: 0;
             height: 0;
+            border-width: 10px 15px 10px 0;
             border-style: solid;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 15px solid #fff;
-            border-left: 0;
+            border-color: transparent #fff transparent transparent;
         }
         &::after {
             content: '';
@@ -124,60 +81,87 @@
             right: 10px;
             width: 0;
             height: 0;
+            border-width: 10px 0 10px 15px;
             border-style: solid;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-right: 15px solid #fff;
-            border-left: 0;
-            transform: rotate(0.5turn);
+            border-color: transparent transparent transparent #fff;
         }
-    }
-
-    .carroussel {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 16px;
-        overflow: hidden;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-        padding: 16px;
-        
-        &::before {
-            content: '';
-            position: absolute;
-            background: linear-gradient(90deg, #000000ee, #000000a4, #00000075, #00000000);
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 18%;
-            z-index: 1;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            background: linear-gradient(90deg, #00000000, #00000075, #000000a4, #000000ee);
-            top: 0;
-            right: 0;
-            width: 18%;
-            height: 100%;
-        }
-        
-        a {
-            // transform: translateX(105%);
-            
-            img {
-                max-width: clamp(270px, 60vw, 460px);
-                // width: 100%;
+        @media (max-width: 767px) {
+            &::before,
+            &::after,
+            .mask-left,
+            .mask-right {
+                display: block;
             }
-            h3 {
-                margin-top: 8px;
-                text-align: center;
-                text-decoration: underline;
-                font-size: clamp(18px, 4vw, 22px);
-                font-weight: bold;
+        }
+        .carroussel {
+            display: flex;
+            column-gap: 16px;
+
+            &::before,
+            &::after {
+                display: none;
+            }
+
+            .cloned {
+                display: none;
+            }
+            
+            &__book {
+                img {
+                    border: 4px solid #fff;
+                    border-radius: 18px;
+                    width: 100%;
+                }
+                h3 {
+                    margin-top: 8px;
+                    text-align: center;
+                    text-decoration: underline;
+                    font-size: clamp(18px, 4vw, 22px);
+                    font-weight: bold;
+                }
+            }
+
+            @media (max-width: 767px) {
+                position: relative;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                padding: 16px;
+
+                .cloned {
+                    display: block;
+                }
+                
+                &::before {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    background: linear-gradient(90deg, #000000ee, #000000a4, #00000075, #00000000);
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 18%;
+                    z-index: 1;
+                }
+
+                &::after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    background: linear-gradient(90deg, #00000000, #00000075, #000000a4, #000000ee);
+                    top: 0;
+                    right: 0;
+                    width: 18%;
+                    height: 100%;
+                }
+            
+                &__book {                    
+                    img {
+                        width: clamp(270px, 60vw, 460px);
+                    }
+                }
             }
         }
     }
