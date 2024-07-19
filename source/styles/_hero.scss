@@ -35,7 +35,6 @@
             margin-right: 44px;
         }
 
-        font-family: 'Times New Roman', Times, serif;
         &__title {
             margin-bottom: 8px;
             font-size: clamp(50px, 8vw, 128px);
@@ -45,6 +44,7 @@
             text-transform: uppercase;
             -webkit-text-stroke: 0.021875em #fff;
             span {
+                font-family: 'Times New Roman', Times, serif;
                 &:nth-child(1) {
                     padding-left: 12px;
                 }

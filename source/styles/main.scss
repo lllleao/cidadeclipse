@@ -4,6 +4,7 @@
 @use 'public-lb';
 @use 'cards';
 @use 'store';
+@use 'footer';
 
 * {
     margin: 0;
@@ -11,10 +12,10 @@
     box-sizing: border-box;
     color: #fff;
     list-style: none;
+    font-family: 'Courier New OS', Courier, monospace;
 }
 
 .container {
-    font-family: 'Courier New OS', Courier, monospace;
     max-width: 1216px;
     width: 100%;
     margin: 0 auto;
@@ -31,6 +32,7 @@
     }
 }
 
-.main {
+.main,
+.footer {
     background: variables.$mainBack;
 }
