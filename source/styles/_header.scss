@@ -13,13 +13,13 @@
             @media screen and (max-width: 767px) {
                 display: block;
             }
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             &__item {
                 display: block;
-                width: 22px;
-                height: 5px;
+                width: 28px;
+                height: 2px;
                 background-color: #fff;
                 border-radius: 50px;
                 
