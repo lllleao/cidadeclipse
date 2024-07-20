@@ -9,6 +9,7 @@
 
     &__nav {
         .hamburguer-wrapper {
+            z-index: 2;
             display: block;
             @media screen and (max-width: 767px) {
                 display: block;
@@ -48,6 +49,7 @@
             }
         }
         .menu-mob {
+            z-index: 2;
             position: fixed;
             top: 20px;
             right: 20px;
