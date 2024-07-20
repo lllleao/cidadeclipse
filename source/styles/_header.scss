@@ -9,8 +9,8 @@
 
     &__nav {
         .hamburguer-wrapper {
+            display: none;
             z-index: 2;
-            display: block;
             @media screen and (max-width: 767px) {
                 display: block;
             }
@@ -77,9 +77,6 @@
         }
 
         &__list {
-            @media screen and (max-width: 767px) {
-                display: none;
-            }
             display: flex;
             justify-content: space-between;
             font-size: 1.5em;
@@ -107,6 +104,16 @@
                         top: 0;
                     }
                 }
+            }
+            
+            @media (min-width: 768px) and (max-width: 870px) {
+                justify-content: space-around;
+                &__item {
+                    width: min-content;
+                }
+            }
+            @media (max-width: 767px) {
+                display: none;
             }
         }
     }
