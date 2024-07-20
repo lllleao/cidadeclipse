@@ -55,8 +55,9 @@
             width: min-content;
             padding: 16px;
             opacity: 0;
+            -webkit-transform: translateX(120%);
             transform: translateX(120%);
-        
+            -webkit-transition: opacity 0.3s 0.1s, transform 0.3s ease-in-out;
             transition: opacity 0.3s 0.1s, transform 0.3s ease-in-out;
             &__item {
                 text-decoration: none;
@@ -66,7 +67,7 @@
             }
             
             &__is-active-menu {
-                
+                -webkit-transform: translate(-50px, 10px);
                 display: block;
                 transform: translate(-50px, 10px);
                 opacity: 1;
