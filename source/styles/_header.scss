@@ -8,11 +8,13 @@
     }
 
     &__nav {
-        .menu-mob {
-            display: none;
+        .hamburguer-wrapper {
+            display: block;
             @media screen and (max-width: 767px) {
                 display: block;
             }
+            padding: 8px;
+            cursor: pointer;
             position: fixed;
             top: 20px;
             right: 20px;
@@ -22,10 +24,52 @@
                 height: 5px;
                 background-color: #fff;
                 border-radius: 50px;
+                transition: all 0.3s;
                 
                 &:nth-child(2) {
                     margin: 5px 0;
+                    // visibility: hidden;
                 }
+
+            }
+
+            &__is-active-menu {
+                .hamburguer-wrapper__item {
+                    &:nth-child(1) {
+                        transform: rotate(-45deg) translate(-8px, 8px);
+                    }
+                    &:nth-child(2) {
+                        transform: rotate(-45deg) translate(-1px, 1px);
+                    }
+                    &:nth-child(3) {
+                        transform: rotate(45deg) translate(-6px, -6px);
+                    }
+                }
+            }
+        }
+        .menu-mob {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #222;
+            width: min-content;
+            padding: 16px;
+            opacity: 0;
+            transform: translateX(120%);
+        
+            transition: opacity 0.3s 0.1s, transform 0.3s ease-in-out;
+            &__item {
+                text-decoration: none;
+                display: block;
+                margin-bottom: 8px;
+                padding: 6px;
+            }
+            
+            &__is-active-menu {
+                
+                display: block;
+                transform: translate(-50px, 10px);
+                opacity: 1;
             }
         }
 
