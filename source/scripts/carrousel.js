@@ -4,42 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetLeft = document.querySelector('.mask-left')
     let widthSaved = 0
     let width = carrousselItems[0].clientWidth
-    
-    const nextSlide = () => {
+    let count = 0
+
+    const nextSlide = (width) => {
         let position = nextPrev(width)
         carrousselItems.forEach((item) => {
             item.style.cssText = `transform: translateX(${position}px);`
             item.style.transition = 'transform 0.3s'
         })
     }
-    
-    const prevSlide = () => {
+
+    const prevSlide = (width) => {
         let position = backPrev(width)
         carrousselItems.forEach((item) => {
             item.style.cssText = `transform: translateX(${position}px);`
             item.style.transition = 'transform 0.3s'
         })
     }
-    
+
     const backPrev = (width) => {
         const position = widthSaved + (width + 16)
         widthSaved = position
+        console.log(widthSaved)
         if (widthSaved === ((width + 16) * 3)) {
             widthSaved = 0
         }
         return position
     }
-    
+
     const nextPrev = (width) => {
         const position = widthSaved - (width + 16)
         widthSaved = position
-        console.log(widthSaved)
         if (widthSaved === ((width + 16) * -3)) {
             widthSaved = 0
         }
         return position
     }
-    
+
     const loop = (event) => {
         const ver = widthSaved === 0
         if (ver) {
@@ -47,13 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
             event.style.transition = 'none'
         }
     }
-    
+
+    const autoSlider = () => {
+        setInterval(() => {
+            count++
+            nextSlide(width)
+        }, 4000)
+    }
+
     targetRight.addEventListener('click', () => {
-        nextSlide()
+        nextSlide(width)
     })
 
     targetLeft.addEventListener('click', () => {
-        prevSlide()
+        prevSlide(width)
     })
 
     carrousselItems.forEach(item => {
@@ -61,4 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loop(event.target)
         })
     })
+
+    autoSlider()
 })
