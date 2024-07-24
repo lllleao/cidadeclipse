@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let widthLib = document.querySelector('.public-lb')
 
     const widthLibResize = new ResizeObserver((e) => {
-        let width = carrousselItems[0].clientWidth
         const currentWidth = e[0].borderBoxSize[0].inlineSize
         if (currentWidth > 706) {
             console.log(currentWidth)
@@ -71,6 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
     carrousselItems.forEach(item => {
         item.addEventListener('transitionend', (event) => {
             loop(event.target)
+        })
+
+        item.addEventListener('dragstart', function(e) {
+            e.preventDefault()
+        })
+
+        item.addEventListener('mousedown', function() {
+            item.addEventListener('mousemove', function() {
+                console.log('arrastei')
+            })
         })
     })
 })
