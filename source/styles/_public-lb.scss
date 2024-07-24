@@ -137,7 +137,8 @@
                 }
             
                 .card_container__book {   
-                    display: block;                 
+                    // transition: transform 0.5s ease;
+                    display: block;
                     img {
                         width: clamp(270px, 60vw, 460px);
                     }
