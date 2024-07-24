@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         item.addEventListener('mousedown', function() {
             item.addEventListener('mousemove', function() {
-                console.log('arrastei')
+                item.style.border = '1px solid red'
             })
         })
     })
