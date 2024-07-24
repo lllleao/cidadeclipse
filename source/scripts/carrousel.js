@@ -4,6 +4,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetLeft = document.querySelector('.mask-left')
     let widthSaved = 0
     let width = carrousselItems[0].clientWidth
+    let widthLib = document.querySelector('.public-lb')
+
+    const widthLibResize = new ResizeObserver((e) => {
+        let width = carrousselItems[0].clientWidth
+        const currentWidth = e[0].borderBoxSize[0].inlineSize
+        if (currentWidth > 706) {
+            console.log(currentWidth)
+            widthSaved = 0
+            nextSlide(0 - 16)
+        }
+    })
+
+    widthLibResize.observe(widthLib)
     
     const nextSlide = (width) => {
         let position = nextPrev(width)
