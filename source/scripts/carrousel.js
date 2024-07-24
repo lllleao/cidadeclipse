@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetLeft = document.querySelector('.mask-left')
     let widthSaved = 0
     let width = carrousselItems[0].clientWidth
-    let count = 0
-
+    
     const nextSlide = (width) => {
         let position = nextPrev(width)
         carrousselItems.forEach((item) => {
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const backPrev = (width) => {
         const position = widthSaved + (width + 16)
         widthSaved = position
-        console.log(widthSaved)
         if (widthSaved === ((width + 16) * 3)) {
             widthSaved = 0
         }
@@ -49,13 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const autoSlider = () => {
-        setInterval(() => {
-            count++
-            nextSlide(width)
-        }, 4000)
-    }
-
     targetRight.addEventListener('click', () => {
         nextSlide(width)
     })
@@ -69,6 +60,4 @@ document.addEventListener('DOMContentLoaded', () => {
             loop(event.target)
         })
     })
-
-    autoSlider()
 })
