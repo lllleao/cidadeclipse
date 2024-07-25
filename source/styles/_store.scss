@@ -24,6 +24,10 @@
         column-gap: 62px;
         justify-content: center;
         .card_container__book {
+            -webkit-transform: translateY(20%);
+            -webkit-filter: blur(15px);
+            -webkit-opacity: 0;
+            -webkit-transition: 2s ease;
             transition: 2s ease;
             transition-delay: 0.5s;
             transform: translateY(20%);
@@ -41,6 +45,10 @@
 
         &-is-active {
             .card_container__book {
+                -webkit-transform: translateY(0);
+                -webkit-filter: blur(0);
+                -webkit-opacity: 1;
+                -webkit-transition: 2s ease;
                 transform: translateY(0);
                 opacity: 1;
                 transition: 2s ease;
