@@ -95,9 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrousselItems.forEach((item, index) => {
         item.addEventListener('touchstart', function (event) {
-            setTimeout(() => {
-                touchMoves(event, index)
-            }, 500)
+            touchMoves(event, index)
         })
     })
 })
