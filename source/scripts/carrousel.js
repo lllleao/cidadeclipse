@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const carrousselItems = document.querySelectorAll('.carroussel a')
+    // const widthLibResize = new ResizeObserver((e) => {
+    //     const currentWidth = e[0].borderBoxSize[0].inlineSize
+    //     if (currentWidth > 706) {
+    //         widthSaved = 0
+    //         nextSlide(0 - 16)
+    //     }
+    // })
+
+    // widthLibResize.observe(widthLib)
     const state = {
         startPoint: 0,
         positionSaved: 0,
