@@ -11,8 +11,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100dvh;
-        height: 100svh;
+        min-height: 100dvh;
+        min-height: 100svh;
     }
 
     &__img {
