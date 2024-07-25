@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentWidth > 706) {
             carrousselItems.forEach(item => {
                 item.style.cssText = `transform: none;`
+
+
+                
             })
         } else {
             carrousselItems.forEach((item, index) => {
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    function loop(e, test) {
+    const loop = (e, test) => {
             if (test) {
                 e.currentTarget.style.cssText = `transform: translateX(${0}px);`
                 e.currentTarget.style.transition = 'none'

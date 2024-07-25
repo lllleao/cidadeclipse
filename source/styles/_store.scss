@@ -19,15 +19,40 @@
         display: block;
         color: #545454;
     }
+    
     .store {
         column-gap: 62px;
         justify-content: center;
+        .card_container__book {
+            transition: 2s ease;
+            transition-delay: 0.5s;
+            transform: translateY(20%);
+            filter: blur(15px);
+            opacity: 0;
+
+            &:nth-child(2) {
+                transition-delay: 1.5s;
+            }
+
+            &:nth-child(3) {
+                transition-delay: 2.5s;
+            }
+        }
+
+        &-is-active {
+            .card_container__book {
+                transform: translateY(0);
+                opacity: 1;
+                transition: 2s ease;
+                transition-delay: 0.5s;
+                filter: blur(0);
+            }
+        }
     
         @media (max-width: 767px) {
             flex-wrap: wrap;
     
             .card_container__book {
-                // column-gap: 0;
                 width: clamp(270px, 60vw, 460px);
                 margin-bottom: 32px;
             }
