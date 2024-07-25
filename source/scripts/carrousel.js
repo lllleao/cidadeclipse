@@ -1,83 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
     const carrousselItems = document.querySelectorAll('.carroussel a')
-    // const carrousselContainer = document.querySelectorAll('.carroussel')
-    // const targetRight = document.querySelector('.mask-right')
-    // const targetLeft = document.querySelector('.mask-left')
-    // let widthSaved = 0
-    // let width = carrousselItems[0].clientWidth
-    // let widthLib = document.querySelector('.public-lb')
-
-    // const widthLibResize = new ResizeObserver((e) => {
-    //     const currentWidth = e[0].borderBoxSize[0].inlineSize
-    //     if (currentWidth > 706) {
-    //         widthSaved = 0
-    //         nextSlide(0 - 16)
-    //     }
-    // })
-
-    // widthLibResize.observe(widthLib)
-
-    // const nextSlide = (width) => {
-    //     let position = nextPrev(width)
-    //     carrousselItems.forEach((item) => {
-    //         item.style.cssText = `transform: translateX(${position}px);`
-    //         item.style.transition = 'transform 0.3s'
-    //     })
-    // }
-
-    // const prevSlide = (width) => {
-    //     let position = backPrev(width)
-    //     carrousselItems.forEach((item) => {
-    //         item.style.cssText = `transform: translateX(${position}px);`
-    //         item.style.transition = 'transform 0.3s'
-    //     })
-    // }
-
-    // const backPrev = (width) => {
-    //     const position = widthSaved + (width + 16)
-    //     widthSaved = position
-    //     if (widthSaved === ((width + 16) * 3)) {
-    //         widthSaved = 0
-    //     }
-    //     return position
-    // }
-
-    // const nextPrev = (width) => {
-    //     const position = widthSaved - (width + 16)
-    //     widthSaved = position
-    //     if (widthSaved === ((width + 16) * -3)) {
-    //         widthSaved = 0
-    //     }
-    //     return position
-    // }
-
-    // const loop = (event) => {
-    //     const ver = widthSaved === 0
-    //     if (ver) {
-    //         event.style.cssText = `transform: translateX(${0});`
-    //         event.style.transition = 'none'
-    //     }
-    // }
-
-    // targetRight.addEventListener('click', () => {
-    //     nextSlide(width)
-    // })
-
-    // targetLeft.addEventListener('click', () => {
-    //     prevSlide(width)
-    // })
-
-    // Arrastar slide
     const state = {
         startPoint: 0,
         positionSaved: 0,
         currentPoint: 0,
         moviment: 0,
         indexCurrent: 0,
-        widthSaved: 0,
-        c1: 0,
-        c2: 0,
-        total: []
+        positionSavedBefore: 0,
+        positionSavedAfter: 0,
+        positionSavedTotal: 0,
+    }
+    let elementWidth = carrousselItems[0].clientWidth
+    let test
+
+    carrousselItems.forEach(item => {
+        item.addEventListener('transitionend', (e) => {
+            loop(e, test)
+        })
+    })
+
+    function loop(e, test) {
+            if (test) {
+                e.currentTarget.style.cssText = `transform: translateX(${0}px);`
+                e.currentTarget.style.transition = 'none'
+
+                state.startPoint = 0
+                state.positionSaved = 0
+                state.currentPoint = 0
+                state.moviment = 0
+                state.indexCurrent = 0
+                state.positionSavedBefore = 0
+                state.positionSavedAfter = 0
+                state.positionSavedTota = 0
+            }
+    }
+
+    const setTranslate = (position) => {
+        carrousselItems.forEach(item => {
+            item.style.cssText = `transform: translateX(${position}px);`
+            item.style.transition = `transform 0.3s`
+        })
+        state.positionSaved = position
     }
 
     function touchMoves(e, index) {
@@ -85,71 +48,45 @@ document.addEventListener('DOMContentLoaded', () => {
         state.indexCurrent = index
         state.startPoint = e.targetTouches[0].clientX
         state.currentPoint = state.startPoint - state.positionSaved
-        state.c1 = state.positionSaved
+        state.positionSavedBefore = state.positionSaved
+        element.removeEventListener('touchend', onMouseUp)
         element.addEventListener('touchmove', onMouseMove)
     }
 
     function onMouseMove(e) {
-        const element = e.currentTarget
-        // console.log(state.controll, 'depois c')
         state.moviment = e.targetTouches[0].clientX - state.currentPoint
-        state.c2 = state.moviment
         state.positionSaved = state.moviment
         carrousselItems.forEach(item => {
             item.style.cssText = `transform: translateX(${state.moviment}px);`
+            item.addEventListener('touchend', onMouseUp)
         })
     }
 
 
-    function onMouseUp(e) {
-        const element = e.currentTarget
-        const elementWidth = element.clientWidth
-        state.total = state.c2 - state.c1
-        console.log(state.total, 'total')
+    function onMouseUp() {
+        state.positionSavedAfter = state.moviment
+        state.positionSavedTotal = state.positionSavedAfter - state.positionSavedBefore
 
-        if (state.total < -50) {
-            console.log('entrou next')
+
+        if (state.positionSavedTotal < -100) {
             const position = (state.indexCurrent - 3) * (elementWidth + 16)
-            carrousselItems.forEach(item => {
-                item.style.cssText = `transform: translateX(${-position}px);`
-                item.style.transition = `transform 0.3s`
-            })
-            state.positionSaved = -position
-            state.widthSaved = position
-        } else if (state.total > 50) {
-            console.log('entrou back')
+            setTranslate(-position)
+
+        } else if (state.positionSavedTotal > 100) {
             const position = (state.indexCurrent - 5) * (elementWidth + 16)
-            carrousselItems.forEach(item => {
-                item.style.cssText = `transform: translateX(${-position}px);`
-                item.style.transition = `transform 0.3s`
-            })
-            state.positionSaved = -position
-            console.log(state.positionSaved, 'PS')
-            state.widthSaved = position
+
+            setTranslate(-position)
+
         } else {
-            console.log('entrou noMove')
-            const position = 0
-            carrousselItems.forEach(item => {
-                item.style.cssText = `transform: translateX(${-position}px);`
-                item.style.transition = `transform 0.3s`
-            })
-            state.positionSaved = -position
-            state.widthSaved = position
+            const position = (state.indexCurrent - 4) * (elementWidth + 16)
+            setTranslate(-position)
         }
+        test = state.positionSaved === -((elementWidth + 16) * 3) || state.positionSaved === ((elementWidth + 16) * 3)
     }
 
     carrousselItems.forEach((item, index) => {
-        item.addEventListener('transitionend', (event) => {
-            loop(event.target)
-        })
-
         item.addEventListener('touchstart', function (event) {
             touchMoves(event, index)
-        })
-        item.addEventListener('touchend', onMouseUp)
-
-        item.addEventListener('click', (e) => {
-            e.preventDefault()
         })
     })
 })

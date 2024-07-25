@@ -62,29 +62,29 @@
             z-index: 1;
         }
         
-        &::before {
-            content: '';
-            position: absolute;
-            top: calc(50% - 15px);
-            left: 10px;
-            z-index: 2;
-            width: 0;
-            height: 0;
-            border-width: 10px 15px 10px 0;
-            border-style: solid;
-            border-color: transparent #fff transparent transparent;
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            top: calc(50% - 15px);
-            right: 10px;
-            width: 0;
-            height: 0;
-            border-width: 10px 0 10px 15px;
-            border-style: solid;
-            border-color: transparent transparent transparent #fff;
-        }
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: calc(50% - 15px);
+        //     left: 10px;
+        //     z-index: 2;
+        //     width: 0;
+        //     height: 0;
+        //     border-width: 10px 15px 10px 0;
+        //     border-style: solid;
+        //     border-color: transparent #fff transparent transparent;
+        // }
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     top: calc(50% - 15px);
+        //     right: 10px;
+        //     width: 0;
+        //     height: 0;
+        //     border-width: 10px 0 10px 15px;
+        //     border-style: solid;
+        //     border-color: transparent transparent transparent #fff;
+        // }
         @media (max-width: 767px) {
             &::before,
             &::after,
