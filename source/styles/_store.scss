@@ -33,6 +33,17 @@
             transform: translateY(20%);
             filter: blur(15px);
             opacity: 0;
+            @media (max-width: 767px) {
+                transition-delay: 0;
+
+                &:nth-child(2) {
+                    transition-delay: 0.5s;
+                }
+    
+                &:nth-child(3) {
+                    transition-delay: 1.5s;
+                }
+            }
 
             &:nth-child(2) {
                 transition-delay: 1.5s;
@@ -48,11 +59,8 @@
                 -webkit-transform: translateY(0);
                 -webkit-filter: blur(0);
                 -webkit-opacity: 1;
-                -webkit-transition: 2s ease;
                 transform: translateY(0);
                 opacity: 1;
-                transition: 2s ease;
-                transition-delay: 0.5s;
                 filter: blur(0);
             }
         }
