@@ -41,24 +41,6 @@
         .mask-right {
             display: none;
         }
-
-        .mask-left {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 12%;
-            z-index: 2;
-        }
-
-        .mask-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 12%;
-            z-index: 1;
-        }
         
         @media (max-width: 767px) {
             .mask-left,
@@ -94,7 +76,7 @@
                     top: 0;
                     left: 0;
                     height: 100%;
-                    width: 18%;
+                    width: 15%;
                     z-index: 1;
                 }
 
@@ -105,7 +87,7 @@
                     background: linear-gradient(90deg, #00000000, #00000075, #000000a4, #000000ee);
                     top: 0;
                     right: 0;
-                    width: 18%;
+                    width: 15%;
                     height: 100%;
                 }
             
