@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.cssText = `transform: none;`
 
 
-                
+
             })
         } else {
             carrousselItems.forEach((item, index) => {
@@ -37,28 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrousselItems.forEach(item => {
         item.addEventListener('transitionend', (e) => {
-            loop(e, test)
+            loop(e.currentTarget, test)
         })
     })
 
     const loop = (e, test) => {
-            if (test) {
-                e.currentTarget.style.cssText = `transform: translateX(${0}px);`
-                e.currentTarget.style.transition = 'none'
+        if (test) {
+            e.style.cssText = `transform: translateX(${0}px);`
+            e.style.transition = 'none'
 
-                state.startPoint = 0
-                state.positionSaved = 0
-                state.currentPoint = 0
-                state.moviment = 0
-                state.indexCurrent = 0
-                state.positionSavedBefore = 0
-                state.positionSavedAfter = 0
-                state.positionSavedTota = 0
-            }
+            state.startPoint = 0
+            state.positionSaved = 0
+            state.currentPoint = 0
+            state.moviment = 0
+            state.indexCurrent = 0
+            state.positionSavedBefore = 0
+            state.positionSavedAfter = 0
+            state.positionSavedTota = 0
+        }
     }
 
     const setTranslate = (position) => {
-        
+
         carrousselItems.forEach(item => {
             item.style.cssText = `transform: translateX(${position}px);`
             item.style.transition = `transform 0.3s`
@@ -69,13 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function touchMoves(e, index) {
         const element = e.currentTarget
         state.indexCurrent = index
-        state.startPoint = e.targetTouches[0].clientX
-        state.currentPoint = state.startPoint - state.positionSaved
-        state.positionSavedBefore = state.positionSaved
-        console.log(state.indexCurrent)
-
-        element.removeEventListener('touchend', onMouseUp)
-        element.addEventListener('touchmove', onMouseMove)
+        console.log(index)
+        if (index === 9 || index === 1) {
+            element.removeEventListener('touchmove', onMouseMove)
+            element.removeEventListener('touchend', onMouseUp)
+        } else {
+            state.startPoint = e.targetTouches[0].clientX
+            state.currentPoint = state.startPoint - state.positionSaved
+            state.positionSavedBefore = state.positionSaved
+            
+            element.removeEventListener('touchend', onMouseUp)
+            element.addEventListener('touchmove', onMouseMove)
+        }
     }
 
     function onMouseMove(e) {
@@ -105,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const position = (state.indexCurrent - 5) * (elementWidth + 16)
             setTranslate(-position)
         }
+
         test = state.positionSaved === -((elementWidth + 16) * 4) || state.positionSaved === ((elementWidth + 16) * 4)
     }
 })
