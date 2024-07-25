@@ -33,6 +33,7 @@
             transform: translateY(20%);
             filter: blur(15px);
             opacity: 0;
+            
             @media (max-width: 767px) {
                 transition-delay: 0;
 
