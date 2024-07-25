@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
             carrousselItems.forEach(item => {
                 item.style.cssText = `transform: none;`
             })
+        } else {
+            carrousselItems.forEach((item, index) => {
+                item.addEventListener('touchstart', function (event) {
+                    touchMoves(event, index)
+                })
+            })
         }
     })
 
@@ -49,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const setTranslate = (position) => {
+        
         carrousselItems.forEach(item => {
             item.style.cssText = `transform: translateX(${position}px);`
             item.style.transition = `transform 0.3s`
@@ -62,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         state.startPoint = e.targetTouches[0].clientX
         state.currentPoint = state.startPoint - state.positionSaved
         state.positionSavedBefore = state.positionSaved
+        console.log(state.indexCurrent)
+
         element.removeEventListener('touchend', onMouseUp)
         element.addEventListener('touchmove', onMouseMove)
     }
@@ -80,26 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
         state.positionSavedAfter = state.moviment
         state.positionSavedTotal = state.positionSavedAfter - state.positionSavedBefore
 
-
         if (state.positionSavedTotal < -100) {
-            const position = (state.indexCurrent - 3) * (elementWidth + 16)
+            const position = (state.indexCurrent - 4) * (elementWidth + 16)
             setTranslate(-position)
 
         } else if (state.positionSavedTotal > 100) {
-            const position = (state.indexCurrent - 5) * (elementWidth + 16)
+            const position = (state.indexCurrent - 6) * (elementWidth + 16)
 
             setTranslate(-position)
 
         } else {
-            const position = (state.indexCurrent - 4) * (elementWidth + 16)
+            const position = (state.indexCurrent - 5) * (elementWidth + 16)
             setTranslate(-position)
         }
-        test = state.positionSaved === -((elementWidth + 16) * 3) || state.positionSaved === ((elementWidth + 16) * 3)
+        test = state.positionSaved === -((elementWidth + 16) * 4) || state.positionSaved === ((elementWidth + 16) * 4)
     }
-
-    carrousselItems.forEach((item, index) => {
-        item.addEventListener('touchstart', function (event) {
-            touchMoves(event, index)
-        })
-    })
 })
