@@ -1,14 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     const carrousselItems = document.querySelectorAll('.carroussel a')
-    // const widthLibResize = new ResizeObserver((e) => {
-    //     const currentWidth = e[0].borderBoxSize[0].inlineSize
-    //     if (currentWidth > 706) {
-    //         widthSaved = 0
-    //         nextSlide(0 - 16)
-    //     }
-    // })
+    const widthLib = document.querySelector('.public-lb')
+    let elementWidth = carrousselItems[0].clientWidth
 
-    // widthLibResize.observe(widthLib)
+    const widthLibResize = new ResizeObserver((e) => {
+        elementWidth = carrousselItems[0].clientWidth
+        const currentWidth = e[0].borderBoxSize[0].inlineSize
+        if (currentWidth > 706) {
+            carrousselItems.forEach(item => {
+                item.style.cssText = `transform: none;`
+            })
+        }
+    })
+
+    widthLibResize.observe(widthLib)
     const state = {
         startPoint: 0,
         positionSaved: 0,
@@ -19,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         positionSavedAfter: 0,
         positionSavedTotal: 0,
     }
-    let elementWidth = carrousselItems[0].clientWidth
     let test
 
     carrousselItems.forEach(item => {
