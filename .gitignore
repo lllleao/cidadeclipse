@@ -1,8 +1,7 @@
 .vscode
 source
-source/scripts
+Gulpfile.mjs
 node_modules
 dist/scripts/bundle.js
 dist/scripts/bundle.js.map
 babel.config.json
-Gulpfile.msj
