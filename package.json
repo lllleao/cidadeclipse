@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "gulp watch",
-    "build": "npx imagemin source/imgs/* --out-dir=dist/imgs"
+    "build": "gulp & npx imagemin source/imgs/* --out-dir=dist/imgs"
   },
   "browserslist": "> 0.25%",
   "keywords": [],
