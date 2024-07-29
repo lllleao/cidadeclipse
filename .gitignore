@@ -6,3 +6,4 @@ dist/scripts/bundle.js
 dist/scripts/bundle.js.map
 babel.config.json
 package.json
+package-lock.json
