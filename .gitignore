@@ -1,3 +1,7 @@
 .vscode
+source
 node_modules
-build
+dist/scripts/bundle.js
+dist/scripts/bundle.js.map
+babel.config.json
+Gulpfile.msj

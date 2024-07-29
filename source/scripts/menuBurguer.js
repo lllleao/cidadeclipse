@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const menuHamb = () => {
     const menuBurguer = document.querySelector('.hamburguer-wrapper')
     const menuModal = document.querySelector('.menu-mob')
 
@@ -6,4 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBurguer.classList.toggle('hamburguer-wrapper__is-active-menu')
         menuModal.classList.toggle('menu-mob__is-active-menu')
     })
-})
+}
+
+export default menuHamb

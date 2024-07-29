@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const carrosselAnimation = () => {
     const carrousselItems = document.querySelectorAll('.carroussel a')
     const widthLib = document.querySelector('.public-lb')
     let elementWidth = carrousselItems[0].clientWidth
@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function touchMoves(e, index) {
         const element = e.currentTarget
         state.indexCurrent = index
-        console.log(index)
         if (index === 9 || index === 1) {
             element.removeEventListener('touchmove', onMouseMove)
             element.removeEventListener('touchend', onMouseUp)
@@ -113,4 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         test = state.positionSaved === -((elementWidth + 16) * 4) || state.positionSaved === ((elementWidth + 16) * 4)
     }
-})
+}
+
+export default carrosselAnimation

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const animationStore = () => {
     const heightSome = document.querySelector('.store')
     
     const purchaseObserver = new IntersectionObserver((entries) => {
@@ -12,4 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     purchaseObserver.observe(heightSome)
-})
+}
+
+export default animationStore

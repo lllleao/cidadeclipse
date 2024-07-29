@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const animationType = () => {
     setTimeout(() => {
         const element = document.querySelector('.hero__description__subtitle')
         const text = 'uma cooperativa de artistas emergentes'
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(interval)
             }
         }, 90)
-    
     }, 3000)
-})
+}
+
+export default animationType
