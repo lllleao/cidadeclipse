@@ -1,6 +1,6 @@
 .vscode
 source
-Gulpfile.mjs
+gulpfile.mjs
 node_modules
 dist/scripts/bundle.js
 dist/scripts/bundle.js.map
