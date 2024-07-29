@@ -1,5 +1,6 @@
 .vscode
 source
+source/scripts
 node_modules
 dist/scripts/bundle.js
 dist/scripts/bundle.js.map
